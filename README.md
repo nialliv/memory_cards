@@ -1,5 +1,3 @@
-# memory_cards
-
 Run with Maven
 ========================
 
