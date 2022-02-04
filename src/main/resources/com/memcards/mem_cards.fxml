@@ -59,6 +59,7 @@
                            <items>
                              <MenuItem mnemonicParsing="false" onAction="#menuOpenFile" text="Open file..." />
                            <MenuItem fx:id="clearListItem" mnemonicParsing="false" onAction="#clearListItemAction" text="Clear list words" />
+                           <MenuItem mnemonicParsing="false" onAction="#menuSaveAs" text="Save as ...." />
                            </items>
                          </Menu>
                        </menus>
