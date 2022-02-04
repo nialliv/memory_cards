@@ -38,7 +38,7 @@ public class ExcelFile {
         }
     }
 
-    public void writeItemsToFile (Path path) {
+    public void writeItemsToFile (Path path, Object[] words) {
         try {
             int num = 0;
             OutputStream out = new FileOutputStream(String.valueOf(path));
@@ -46,9 +46,14 @@ public class ExcelFile {
             Sheet sheet = wb.createSheet("Words");
             Row row;
             for (Map.Entry<String, String> item : items.entrySet()) {
-                row = sheet.createRow(num++);
-                row.createCell(0).setCellValue(item.getKey());
-                row.createCell(1).setCellValue(item.getValue());
+                for (Object word : words) {
+                    if(word.toString().equals(item.getKey())) {
+                        row = sheet.createRow(num++);
+                        row.createCell(0).setCellValue(item.getKey());
+                        row.createCell(1).setCellValue(item.getValue());
+                    }
+                }
+
             }
             wb.write(out);
             out.close();

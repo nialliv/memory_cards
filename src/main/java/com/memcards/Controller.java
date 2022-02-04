@@ -61,7 +61,7 @@ public class Controller {
     @FXML
     void menuSaveAs(ActionEvent event) {
         Path path = fileChooser.showSaveDialog(new Stage()).toPath();
-        excelFile.writeItemsToFile(path);
+        excelFile.writeItemsToFile(path, listView.getItems().toArray());
     }
 
 }
