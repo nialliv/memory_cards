@@ -13,6 +13,7 @@ import java.nio.file.Path;
 
 public class Controller {
     FileChooser fileChooser = new FileChooser();
+    ExcelFile excelFile = new ExcelFile();
 
     @FXML
     private MenuItem clearListItem;
@@ -48,13 +49,19 @@ public class Controller {
     @FXML
     void menuOpenFile(ActionEvent event) {
         Path path = fileChooser.showOpenDialog(new Stage()).toPath();
-        ExcelParse excelParse = new ExcelParse(path);
-        listView.getItems().addAll(excelParse.getItems().keySet());
+        excelFile.loadItems(path);
+        listView.getItems().addAll(excelFile.getItems().keySet());
     }
 
     @FXML
     void rememberButtonAction(ActionEvent event) {
 
+    }
+
+    @FXML
+    void menuSaveAs(ActionEvent event) {
+        Path path = fileChooser.showSaveDialog(new Stage()).toPath();
+        excelFile.writeItemsToFile(path);
     }
 
 }
