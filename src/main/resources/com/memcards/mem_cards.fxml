@@ -106,7 +106,7 @@
                   </center>
                   <bottom>
 
-                     <ProgressBar fx:id="progressBar" cache="true" maxWidth="1.7976931348623157E308" prefHeight="13.0" prefWidth="800.0" progress="0.44" style="-fx-accent: #9d69ff;" BorderPane.alignment="CENTER">
+                     <ProgressBar fx:id="progressBar" cache="true" maxWidth="1.7976931348623157E308" prefHeight="13.0" prefWidth="800.0" progress="0.0" style="-fx-accent: #9d69ff;" BorderPane.alignment="CENTER">
                         <BorderPane.margin>
                            <Insets />
                         </BorderPane.margin>

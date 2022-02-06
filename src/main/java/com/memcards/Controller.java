@@ -9,12 +9,14 @@ import javafx.scene.control.ProgressBar;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.math.BigDecimal;
 import java.nio.file.Path;
 import java.util.Objects;
 
 public class Controller {
     FileChooser fileChooser = new FileChooser();
     ExcelFile excelFile = new ExcelFile();
+    BigDecimal progress = new BigDecimal(String.format("%.2f", 0.0));
 
     @FXML
     private MenuItem clearListItem;
