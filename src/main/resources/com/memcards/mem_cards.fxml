@@ -46,7 +46,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <Scene xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.memcards.Controller">
           <AnchorPane prefHeight="600.0" prefWidth="800.0">
@@ -70,10 +69,10 @@
                        <items>
                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                               <children>
-                                 <ListView fx:id="listView" prefHeight="568.0" prefWidth="271.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 <ListView fx:id="listView" prefHeight="568.0" prefWidth="271.0" style="-fx-background-color: #eee6ff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                               </children>
                            </AnchorPane>
-                           <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #dcd6ff;">
+                           <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eee6ff;">
                         <bottom>
                                  <HBox alignment="CENTER" prefHeight="139.0" prefWidth="521.0" spacing="50.0" BorderPane.alignment="CENTER">
                                     <children>
@@ -93,16 +92,11 @@
                         <center>
                            <VBox alignment="CENTER" spacing="35.0" BorderPane.alignment="CENTER">
                               <children>
-                                       <Text fx:id="wordText" strokeType="OUTSIDE" strokeWidth="0.0" text="Word" textAlignment="CENTER" wrappingWidth="343.0888671875">
-                                          <font>
-                                             <Font size="30.0" />
-                                          </font>
-                                       </Text>
-                                 <Text fx:id="translateText" layoutX="10.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Translate" textAlignment="CENTER" visible="false" wrappingWidth="346.0888671875">
+                                 <Button fx:id="wordText" mnemonicParsing="false" onAction="#showTranslate" prefHeight="157.0" prefWidth="345.0" style="-fx-background-color: #d9c4ff;" text="Word" textAlignment="CENTER" wrapText="true">
                                     <font>
-                                       <Font size="20.0" />
+                                       <Font size="30.0" />
                                     </font>
-                                 </Text>
+                                 </Button>
                               </children>
                            </VBox>
                         </center>
@@ -112,7 +106,7 @@
                   </center>
                   <bottom>
 
-                     <ProgressBar fx:id="progressBar" cache="true" maxWidth="1.7976931348623157E308" prefHeight="10.0" prefWidth="800.0" progress="0.44" BorderPane.alignment="CENTER">
+                     <ProgressBar fx:id="progressBar" cache="true" maxWidth="1.7976931348623157E308" prefHeight="13.0" prefWidth="800.0" progress="0.44" style="-fx-accent: #9d69ff;" BorderPane.alignment="CENTER">
                         <BorderPane.margin>
                            <Insets />
                         </BorderPane.margin>
