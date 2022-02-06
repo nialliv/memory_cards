@@ -6,10 +6,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
 import java.nio.file.Path;
+import java.util.Objects;
 
 public class Controller {
     FileChooser fileChooser = new FileChooser();
@@ -31,10 +32,7 @@ public class Controller {
     private Button rememberButton;
 
     @FXML
-    private Text translateText;
-
-    @FXML
-    private Text wordText;
+    private Button wordText;
 
     @FXML
     void clearListItemAction(ActionEvent event) {
@@ -43,7 +41,9 @@ public class Controller {
 
     @FXML
     void forgotButtonAction(ActionEvent event) {
-
+        String tmp = listView.getItems().remove(0);
+        listView.getItems().add(tmp);
+        wordText.setText(listView.getItems().get(0));
     }
 
     @FXML
@@ -51,17 +51,28 @@ public class Controller {
         Path path = fileChooser.showOpenDialog(new Stage()).toPath();
         excelFile.loadItems(path);
         listView.getItems().addAll(excelFile.getItems().keySet());
+        wordText.setText(listView.getItems().get(0));
     }
 
     @FXML
     void rememberButtonAction(ActionEvent event) {
-
+        listView.getItems().remove(0);
+        wordText.setText(listView.getItems().get(0));
     }
 
     @FXML
     void menuSaveAs(ActionEvent event) {
         Path path = fileChooser.showSaveDialog(new Stage()).toPath();
         excelFile.writeItemsToFile(path, listView.getItems().toArray());
+    }
+
+    @FXML
+    void showTranslate(ActionEvent event) {
+        if (Objects.equals(wordText.getText(), listView.getItems().get(0))) {
+            wordText.setText(excelFile.getItems().get(listView.getItems().get(0)));
+        } else {
+            wordText.setText(listView.getItems().get(0));
+        }
     }
 
 }
